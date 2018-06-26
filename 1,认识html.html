@@ -5,15 +5,35 @@
     <title>这是我第一次往GitHub上提交学习html记录。</title>
 </head>
 <body>
-<h2>什么是html？</h2>
+<h2 style="text-align: center">什么是html？</h2>
 <p>
     html（hypertext markup language）超文本标记语言:
     网页内容的载体，
     超文本的"超"是超链接（a标签）的意思，
     一个页面中通过超链接跳转到另一个页面.再由另一个页面的超链接跳转下一个页面
-    它是一种描述网页长成什么样子的语言，标记就是标签，像P标签就是在告诉浏览器我这里是段落的意思...
+    它是一种描述网页长成什么样子的语言，标记就是所谓的标签，像P标签就是在告诉浏览器我这里是段落的意思...
     是目前网络上最为广泛的语言，也是构成网页文档的主要语言。
 </p>
+<p>html是用来描述网页的一种语言：</p>
+<ol>
+    <li>它不是一种<span style="color: gold">编程语言</span>，它是一种<strong>标记语言</strong>。就像P标签它就是标记P中的内容是段落的意思</li>
+    <li>标记语言是一套标记标签markup tag</li>
+    <li>html使用标记标签来描述网页</li>
+</ol>
+<h3>HTML文档 = 网页</h3>
+<ul>
+    <li>html文档描述网页</li>
+    <li>html文档包含html标签和纯文本</li>
+    <li>html文档也被称为网页</li>
+</ul>
+<p>web浏览器的作用是读取HTML文档，并以网页的形式显示出他们，浏览器不会显示html标签，而是使用标签来解释页面的内容</p>
+<a href="http://www.w3school.com.cn">This is a link</a>
+<img src="img/eg_w3school.gif" alt="w3school" width="188" height="102">
+<p>This is my first paragraph</p>
+<p style="background-color: darkcyan;font-size: 22px;color: palevioletred;font-family: ">HTML标签可以拥有属性，属性是以名称/值对的形式出现的，比如name = "value"</p>
+<!-- 注释 -->
+<hr title="我是分割线" />
+<p>一打共有<del>5</del><ins>12</ins>件</p>
 <p>
     <em>em标签  浏览器会用斜体表示</em>
     <br>
@@ -38,6 +58,19 @@
         }
     </pre>
 </p>
+<ul>
+    <li>吃饭</li>
+    <li>睡觉</li>
+    <li>
+        打豆豆
+        <ol>
+            <li>打</li>
+            <li>豆</li>
+            <li>豆</li>
+        </ol>
+
+    </li>
+</ul>
 <script>
     function fun(){
         document.write("hello,word")
