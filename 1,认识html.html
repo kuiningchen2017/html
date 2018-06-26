@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>这是我第一次往GitHub上提交学习html记录。</title>
+    <!-- href 后面写文件路径-->
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        body {
+            background-color: antiquewhite;
+            /*background-image: url("img/eg_mouse.jpg");*/
+        }
+        p {
+            margin-left: 20px;
+        }
+        img {
+            vertical-align: top; /* 文字在最上面 */
+            vertical-align: middle; /* 文字在中间 */
+        }
+        table {
+            /*background-image: url("img/eg_mouse.jpg");*/
+        }
+    </style>
 </head>
 <body>
-<h2>什么是html？</h2>
+
+<a href="#bottom">去到最底部</a>
+<h2><a href="http://www.w3school.com.cn/tags/tag_term_hypertext.asp" target="_blank">什么是html？</a></h2>
 <p>
     html（hypertext markup language）超文本标记语言:
     网页内容的载体，
@@ -14,6 +34,7 @@
     它是一种描述网页长成什么样子的语言，标记就是标签，像P标签就是在告诉浏览器我这里是段落的意思...
     是目前网络上最为广泛的语言，也是构成网页文档的主要语言。
 </p>
+
 <p>
     <em>em标签  浏览器会用斜体表示</em>
     <br>
@@ -36,8 +57,17 @@
        function fun(){
             document.write("hello,word")
         }
+        var person = {
+            firstname : "Bill",
+            lastname : "Gates",
+            age : 45,
+            eyecolor : "blue"
+        }
     </pre>
 </p>
+<!--[if IE 8]>
+    ...some HTML here..
+<![endif]-->
     <ul>
         <li>足球</li>
         <li>乒乓球</li>
@@ -49,6 +79,54 @@
             </ol>
         </li>
     </ul>
+<p>HTML 使用超链接与网络上的另一个文档相连，几乎可以在所有网页中找到链接。
+    点击链接可以从一张页面跳转到另一张页面</p>
+<br>
+<a name="none">a标签如果不写href属性鼠标点击没有任何作用</a>
+<br>
+<p>一副图像：
+    <img src="img/eg_mouse.jpg" alt="">
+</p>
+<p>
+    一副动画图像：
+    <img src="img/eg_cute.gif" alt="">
+</p>
+<p>插入动画图像的语法和插入普通图像的语法没有区别</p>
+<br>
+<p>table表格中，border是每个表格内容都有一个1px的边框，cellpadding是代表单元格内容与边框的距离
+cellspaceing单元格边框与边框的距离，通常设置为0</p>
+<p>表格中也可以添加背景图片，也可向每个单元格添加背景图片</p>
+<table border="1" cellpadding="20" cellspacing="0">
+    <caption>国家介绍</caption>
+    <thead>
+        <tr>
+            <th>country</th>
+            <th>music</th>
+            <th>area</th>
+            <th>peoples</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>chinese</td>
+            <td>茉莉花</td>
+            <td>Asia</td>
+            <td>13亿</td>
+        </tr>
+    </tbody>
+</table>
+<table border="1">
+    <caption>左边是加粗</caption>
+    <tr>
+        <th>姓名</th>
+        <td>chen</td>
+    </tr>
+    <tr>
+        <th>电话</th>
+        <td>132********</td>
+    </tr>
+</table>
+<a href="#" id="bottom">去到最顶部</a>
 <script>
     function fun(){
         document.write("hello,word")
