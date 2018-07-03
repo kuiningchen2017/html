@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="get">
+    <p>method属性的属性值有get/post。get方式是用户提交的信息会在地址栏中显示，post不会</p>
+    <p>如果表单是被动提交的（比如搜索引擎页面），并且没有敏感信息，可以使用get方式</p>
+    <p>如果表单是在<span style="color: red">更新数据</span>,或者包含敏感信息，比如密码，POST则更加安全，因为在页面栏中是不可见的</p>
+    <p>input是最重要的表单元素，有很多不同的形态，根据不同的type属性</p>
+    常规文本输入，比如账号：<input type="text" maxlength="8" name="zhanghao" placeholder="chenkuining">
+    <br>
+    密码输入：<input type="password" name="mima">
+    <input type="date">
+    <p>input的type属性值为radio时，定义单选按钮！</p>
+    <p>单选按钮定义用户在有限的选项中选择其中一个</p>
+    <input type="radio" name="sex" value="male" checked>Male
+    <input type="radio" name="sex" value="female">Female
+    <input type="submit" value="Submit">
+    <p>如果要正确的被提交，每个input必须设置name属性，后台接受的时候会是'zhanghao = ****'这样解析的。如果没有name属性后台不知道你提交的到底是什么东西。</p>
+    <label>喜欢的汽车</label>
+    <select name="cars" >
+        <option value="volvo">Volvo</option>
+        <option value="audi">Audi</option>
+        <option value="toyota">Toyota</option>
+    </select>
+    <br>
+    <textarea name="fankui" cols="30" rows="10">
+
+    </textarea>
+    <button type="button">click me！</button>
+    <br>
+    选择你的浏览器：<input list="browsers" name="browser">
+    <datalist id="browsers">
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Safari">
+    </datalist>
+    <input type="submit">
+    <br>
+    <input type="checkbox" name="vehicle" value="Bike"> I have a bike
+    <input type="checkbox" name="vehicle" value="Car"> I have a car
+</form>
+<form>
+    <p>可以输入日期，并且设置一个范围</p>
+    Enter a date before 1980-01-01：
+    <input type="date" name="bday" max="1979-12-31"><br>
+    Enter a date after 2000-01-01：
+    <input type="date" name="aday" min="2000-01-02">
+</form>
+<form>
+    范围：<input type="range" name="points" min="0" max="20" step="1" value="1">
+    <input type="submit">
+</form>
+<form>
+    <p>上传图片：</p>
+    Select images： <input type="file" name="img" multiple>
+    <input type="submit" value="submit">
+    <button type="submit" >submit</button>
+</form>
+</body>
+</html>
