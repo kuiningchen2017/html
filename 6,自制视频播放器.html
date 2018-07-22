@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        #myVideo {
+            display: none;
+        }
+        #myCanvasVideo {
+            /*视频播放时的第一帧是广告图*/
+            background-image: url("img/eg_mouse.jpg");
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<!-- 首先视频标签 video 默认大小960*540-->
+<video src="video&audio/demo.mp4" controls="controls" id="myVideo"></video>
+<canvas width="960" height="540" id="myCanvasVideo"></canvas>
+<br/>
+<button id="btnPlay" type="button">播放</button>
+<button id="btnPause" type="button">暂停</button>
+<span id="second">00:00:00</span>/<span id="allTimes"></span>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    var btnPlay = document.getElementById('btnPlay');
+    var btnPause = document.getElementById('btnPause');
+    var myCanvasVideo = document.getElementById('myCanvasVideo');
+    var myVideo = document.getElementById('myVideo');
+    var second = document.getElementById('second');
+    var allTimes = document.getElementById('allTimes');
+    var handler;
+    // 弹幕初始位置
+    var start = 960;
+    btnPlay.onclick = function() {
+      // 视频播放
+      myVideo.play();
+      editVideo();
+    };
+    btnPause.onclick = function(){
+      // 视频暂停
+      myVideo.pause();
+      // 清除绘画的定时器
+      clearInterval(handler);
+    }
+    // 在canvas上播放每一帧画面
+    var painting =  myCanvasVideo.getContext('2d')
+    console.log(myVideo);
+    function editVideo() {
+      handler = setInterval(function(){
+        painting.drawImage(myVideo,0,0);
+        // 制作弹幕
+        painting.fillStyle = "#fff";
+        // 这段话从后台获取
+        painting.fillText("这个视频很狗血啊~~~~",start,50);
+        painting.font = 'bold 33px 微软雅黑';
+        start = start-5;
+      },60)
+    }
+    // 获取总时长显示在播放和暂停按钮的旁边
+    // 获取实时播放的时间 需要在ontimeupdate中获取 ontimeupdate是播放过程中实时触发
+    myVideo.ontimeupdate = function(event) {
+      second.innerHTML = timeFormatter(event.target.currentTime);
+    };
+    // 元数据加载完毕后触发 onloadedetadata 这样就可以获取到总时长了
+    myVideo.onloadedmetadata = function(event) {
+      allTimes.innerHTML = timeFormatter(event.target.duration);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    canvas元素用于图形的绘制,通过脚本一般是JavaScript来完成
+    它只是个图形容器,需要使用js来绘制图形
+-->
+<canvas id="myCanvas" width="300" height="100" style="border: 1px solid #000;"></canvas>
+<!--
+    使用JavaScript来绘制图形
+-->
+<script type="text/javascript">
+    // canvas元素本身是没有绘制能力的.所有绘制工作必须在javascript内部完成
+    // 首先获取canvas Dom元素本身
+    var c = document.getElementById('myCanvas');
+    // 创建context对象 getContext("2d")对象是HTML5的内建对象
+    var ctx = c.getContext('2d');
+    // 改变画笔的颜色
+    ctx.fillStyle = "#FF0000"
+    // 绘制矩形 fillRect(x,y,width,height)
+    ctx.fillRect(0,0,15,7);
+    // again
+    // 首先获取canvasDOM元素
+    var c = document.getElementById('myCanvas');
+    // 获取画笔 获取context对象
+    var ctx = c.getContext('2d');
+    // 改变画笔的颜色
+    ctx.fillStyle = "#F00";
+    // 绘制出一个矩形
+    ctx.fillRect(0,0,100,50);
+
+
+    // canvas绘制线段
+    // 同样获取dom元素 获取context对象
+    var c = document.getElementById('myCanvas');
+    // 获取context对象
+    var ctx = c.getContext('2d');
+    // 定义线条开始的坐标  使用moveTo(x,y)方法
+    ctx.moveTo(0,0)
+    // 定义线条结束的坐标
+    ctx.lineTo(200,100);
+    ctx.lineTo(250,50);
+    // 绘制结束
+    ctx.stroke();
+    // again
+    var c =document.getElementById('myCanvas');
+    var ctx = c.getContext('2d');
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.lineTo(10,10);
+    ctx.stroke();
+
+    // canvas绘制圆形
+    var c =document.getElementById('myCanvas');
+    var ctx = c.getContext('2d');
+    // beginPath() 丢弃任何当前定义的路径并且开始一条新的路径。它把当前的点设置为 (0,0)。
+    // 当一个画布的环境第一次创建，beginPath() 方法会被显式地调用。
+    ctx.beginPath();
+    ctx.arc(50,50,50,0,2*Math.PI);
+    // 绘制圆形结束时也要调用stroke方法
+    ctx.stroke();
+    // again
+    var c = document.getElementById('myCanvas');
+    var ctx = c.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(50,50,50,0,2*Math.PI);
+    ctx.stroke();
+
+    // canvas 文本
+    // 使用canvas绘制文本
+    // font 定义字体的样式
+    // fillText(text,x,y) 在canvas上绘制实心的字体
+    // strokeText(text,x,y) 在canvas上绘制空心的字体
+    var c = document.getElementById('myCanvas');
+    var ctx = c.getContext('2d');
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "yellow";
+    ctx.fillText("Hello World",10,50);
+    // again
+    var c = document.getElementById('myCanvas');
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "blue";
+    ctx.fillText("Hello World",20,40);
+    ctx.strokeText("Hi Li",30,30);
+
+    // 改变绘制图形的坐标圆点
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 音频
+    autoplay="autoplay" 自动播放
+    loop="loop" 循环播放
+
+    移动端开发需要用到preload属性
+    preload="auto" 加载一半
+    preload="metadata" 加载一小部分
+    preload="none" 一点不加载
+-->
+<audio src="video&audio/With_An_Orchid_Yanni.mp3"
+       controls="controls"
+       loop="loop"
+       preload="auto">
+</audio>
+<!-- 和音频audio相比 多了个poster属性 海报 广告 -->
+<video src="video&audio/demo.mp4" controls="controls" poster="img/eg_mouse.jpg" id="myVideo"></video>
+<button id="btnPlay" type="button">播放</button>
+<button id="btnPause" type="button">暂停</button>
+<script type="text/javascript">
+   var myVideo = document.getElementById('myVideo');
+   var btnPlay = document.getElementById('btnPlay');
+   var btnPause = document.getElementById('btnPause');
+   btnPlay.onclick = function() {
+     // 点击播放按钮，视频开始播放 调用video的play方法
+     myVideo.play();
+   }
+   btnPause.onclick = function() {
+     // 点击暂停按钮， 视频暂停播放 调用video的pause方法
+     myVideo.pause();
+   }
+   // 播放过程中实时触发
+    myVideo.ontimeupdate = function(event) {
+      // console.log(event);
+      // 当前播放的时间
+      var currentTime = event.target.currentTime
+      console.log(currentTime)
+      // 需要考虑把它变成格式化的时间  YYYY--MM--DD HH：mm：ss
+      // 可以用commentJS 或者自己定义个方法
+
+      // 检测用户是否暂停视频 暂停值为true 播放值为false
+      console.log("用户暂停了" + myVideo.paused);
+      // 检测用户是否静音  静音为true 有音为false
+      console.log("用户静音了" + myVideo.muted);
+      // 检测是否播放完毕 是为true
+      console.log(myVideo.ended);
+    };
+    // 声音改变时触发
+    myVideo.onvolumechange = function(ev) {
+       console.log(ev);
+      // 获取声音的音量
+      var volume = ev.target.volume
+      console.log(volume);
+    }
+    // 元数据加载完毕后触发
+    myVideo.onloadedmetadata = function(ev) {
+     // 播放的总时长
+      var times = ev.target.duration
+      console.log(times);
+      // 同样需要转换为HH：mm：ss格式，容易看明白 使用commentJS
+    }
+</script>
+</body>
+</html>
